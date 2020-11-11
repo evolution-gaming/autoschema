@@ -1,5 +1,5 @@
 # AutoSchema
-[![Build Status](https://github.com/evolution-gaming/autoschema/workflows/CI/badge.svg)](https://github.com/evolution-gaming/autoschema/actions?query=workflow%3ACI)
+![CI](https://github.com/evolution-gaming/autoschema/workflows/CI/badge.svg?branch=master)
 
 This is a fork of https://github.com/coursera/autoschema that merges several sanity updates
 and updates some features to be of use with the current status of JSON schemas.
