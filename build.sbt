@@ -1,63 +1,22 @@
-lazy val root = (project in file(".")).enablePlugins(VersioningPlugin)
-
-name := "autoschema"
-
-organization := "com.sauldhernandez"
-
-scalaVersion := "2.12.1"
-
-crossScalaVersions := Seq("2.12.1", "2.11.8")
-
-semanticVersion := Version(1, 0, 4)
-
-scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-encoding", "utf8")
-
-testOptions += Tests.Argument(TestFrameworks.JUnit, "-q", "-v")
-
-libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.6.0-M7",
-  "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-  "com.novocode" % "junit-interface" % "0.11" % "test"
+lazy val commonSettings = Seq(
+  organization := "com.evolutiongaming",
+  homepage := Some(new URL("https://github.com/evolution-gaming/autoschema")),
+  startYear := Some(2020),
+  organizationName := "Evolution Gaming",
+  organizationHomepage := Some(url("http://evolutiongaming.com")),
+  bintrayOrganization := Some("evolutiongaming"),
+  scalaVersion := crossScalaVersions.value.head,
+  crossScalaVersions := Seq("2.13.3", "2.12.12"),
+  scalacOptions in (Compile, doc) += "-no-link-warnings",
+  scalacOptsFailOnWarn := Some(false),
+  resolvers += Resolver.bintrayRepo("evolutiongaming", "maven"),
+  licenses := Seq(("MIT", url("https://opensource.org/licenses/MIT"))),
+  releaseCrossBuild := true
 )
 
-useGpg := true
-
-usePgpKeyHex("34de53dd")
-
-buildInfoPackage := "com.sauldhernandez.autoschema"
-
-publishMavenStyle := true
-
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
-}
-
-pomIncludeRepository := { _ => false }
-
-pomExtra := <url>https://github.com/sauldhernandez/autoschema</url>
-  <licenses>
-    <license>
-      <name>Apache License, Version 2.0</name>
-      <url>https://opensource.org/licenses/Apache-2.0</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-  <scm>
-    <url>git@github.com:sauldhernandez/autoschema.git</url>
-    <connection>scm:git:git@github.com:sauldhernandez/autoschema.git</connection>
-  </scm>
-  <developers>
-    <developer>
-      <id>coursera</id>
-      <name>Coursera</name>
-    </developer>
-    <developer>
-      <id>sauldhernandez</id>
-      <name>Saul Hernandez</name>
-      <url>http://github.com/sauldhernandez</url>
-    </developer>
-  </developers>
+lazy val sequentially = (project
+  in file(".")
+  settings (name := "autoschema", scalacOptsFailOnWarn := Some(false))
+  settings (testOptions += Tests.Argument(TestFrameworks.JUnit, "-q", "-v"))
+  settings commonSettings
+  settings (libraryDependencies ++= Dependencies.all))
