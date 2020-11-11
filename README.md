@@ -1,4 +1,4 @@
-# AutoSchema
+# AutoSchema [![Build Status](https://travis-ci.org/evolution-gaming/autoschema.svg?branch=master)](https://travis-ci.org/evolution-gaming/autoschema)
 
 This is a fork of https://github.com/coursera/autoschema that merges several sanity updates
 and updates some features to be of use with the current status of JSON schemas.
