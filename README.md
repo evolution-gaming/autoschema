@@ -25,11 +25,13 @@ Unsupported Features
 * Play Framework JSON types
 
 ## Installation
-Add this line to your `build.sbt`:
+Requires Java 17 and Scala 2.13.
+
+Add these lines to your `build.sbt`:
 
         resolvers += "Evolution" at "https://rms.evolution.com/public/"
 
-        libraryDependencies += "com.evolutiongaming" %% "autoschema" % "2.0.0",
+        libraryDependencies += "com.evolutiongaming" %% "autoschema" % "2.0.0"
 
 ## Usage
 With a type parameter
