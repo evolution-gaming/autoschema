@@ -11,6 +11,7 @@ lazy val commonSettings = Seq(
   javacOptions ++= Seq("--release", "17"),
   scalacOptsFailOnWarn := Some(false),
   publishMavenStyle := true,
+  publishTo := Some(Resolver.evolutionReleases),
   versionScheme := Some("early-semver"),
   licenses := Seq(("MIT", url("https://opensource.org/licenses/MIT"))),
   scmInfo := Some(
