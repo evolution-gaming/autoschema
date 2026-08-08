@@ -10,8 +10,8 @@ jobs:
     strategy:
       matrix:
         scala:
-          - 2.13.3
-          - 2.12.12
+          - 2.13.16
+          - 2.12.20
 
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
       - name: scala
         uses: olafurpg/setup-scala@v10
         with:
-          java-version: openjdk@1.11
+          java-version: openjdk@1.17
 
       - name: build ${{ matrix.scala }}
         run: sbt ++${{ matrix.scala }} clean test

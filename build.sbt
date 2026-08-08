@@ -1,15 +1,14 @@
 lazy val commonSettings = Seq(
   organization := "com.evolutiongaming",
-  homepage := Some(new URL("https://github.com/evolution-gaming/autoschema")),
+  homepage := Some(url("https://github.com/evolution-gaming/autoschema")),
   startYear := Some(2020),
   organizationName := "Evolution Gaming",
   organizationHomepage := Some(url("http://evolutiongaming.com")),
-  bintrayOrganization := Some("evolutiongaming"),
   scalaVersion := crossScalaVersions.value.head,
-  crossScalaVersions := Seq("2.13.3", "2.12.12"),
-  scalacOptions in (Compile, doc) += "-no-link-warnings",
+  crossScalaVersions := Seq("2.13.16", "2.12.20"),
+  Compile / doc / scalacOptions += "-no-link-warnings",
   scalacOptsFailOnWarn := Some(false),
-  resolvers += Resolver.bintrayRepo("evolutiongaming", "maven"),
+  resolvers += "Evolution Gaming repository" at "https://rms.evolution.com/public/",
   licenses := Seq(("MIT", url("https://opensource.org/licenses/MIT"))),
   releaseCrossBuild := true
 )
