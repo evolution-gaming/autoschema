@@ -2,15 +2,27 @@ lazy val commonSettings = Seq(
   organization := "com.evolutiongaming",
   homepage := Some(url("https://github.com/evolution-gaming/autoschema")),
   startYear := Some(2020),
-  organizationName := "Evolution Gaming",
-  organizationHomepage := Some(url("http://evolutiongaming.com")),
+  organizationName := "Evolution",
+  organizationHomepage := Some(url("https://evolution.com")),
   scalaVersion := crossScalaVersions.value.head,
-  crossScalaVersions := Seq("2.13.16", "2.12.20"),
+  crossScalaVersions := Seq("2.13.16"),
   Compile / doc / scalacOptions += "-no-link-warnings",
+  scalacOptions ++= Seq("-release", "17"),
+  javacOptions ++= Seq("--release", "17"),
   scalacOptsFailOnWarn := Some(false),
-  resolvers += "Evolution Gaming repository" at "https://rms.evolution.com/public/",
+  publishMavenStyle := true,
+  versionScheme := Some("early-semver"),
   licenses := Seq(("MIT", url("https://opensource.org/licenses/MIT"))),
-  releaseCrossBuild := true
+  scmInfo := Some(
+    ScmInfo(
+      url("https://github.com/evolution-gaming/autoschema"),
+      "git@github.com:evolution-gaming/autoschema.git")),
+  developers := List(
+    Developer(
+      "aterekhin",
+      "Aleksei Terekhin",
+      "aterekhin@evolution.com",
+      url("https://github.com/evolution-gaming")))
 )
 
 lazy val sequentially = (project
