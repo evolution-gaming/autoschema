@@ -27,8 +27,6 @@ Unsupported Features
 ## Installation
 Add this line to your `build.sbt`:
 
-        resolvers += Resolver.bintrayRepo("evolutiongaming", "maven")
-        
         libraryDependencies += "com.evolutiongaming" %% "autoschema" % "1.0.5",
 
 ## Usage
