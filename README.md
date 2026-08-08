@@ -4,7 +4,7 @@
 This is a fork of https://github.com/coursera/autoschema that merges several sanity updates
 and updates some features to be of use with the current status of JSON schemas.
 
-This fork is published on maven central. See Installation section for instructions.
+This fork is published on Evolution's public Artifactory. See Installation section for instructions.
 
 ## Generate JSON Schema from Scala classes!
 
@@ -27,7 +27,9 @@ Unsupported Features
 ## Installation
 Add this line to your `build.sbt`:
 
-        libraryDependencies += "com.evolutiongaming" %% "autoschema" % "1.0.5",
+        resolvers += "Evolution" at "https://rms.evolution.com/public/"
+
+        libraryDependencies += "com.evolutiongaming" %% "autoschema" % "2.0.0",
 
 ## Usage
 With a type parameter
